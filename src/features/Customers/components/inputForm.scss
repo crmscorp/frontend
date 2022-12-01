@@ -1,0 +1,31 @@
+
+.inputContainer{
+    width: 100%;
+    margin-bottom: 2rem;
+
+    .inputcontainer_inner{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .buttonContainer{
+            width: 40%;
+            display: flex;
+            justify-content: flex-end;
+            height: 4rem;
+            align-items: flex-end;
+        }
+        
+    }
+
+    .headline{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+}
