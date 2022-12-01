@@ -4,7 +4,7 @@ import { Component } from 'solid-js';
 const SolidTable: Component = () => {
     return (
         <div>
-            <h2>SolidTable</h2>
+            <h2>Solidtabelleeeee</h2>
         </div>
     )
 }
