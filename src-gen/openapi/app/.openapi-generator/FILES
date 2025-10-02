@@ -1,0 +1,12 @@
+.openapi-generator-ignore
+apis/CustomersApi.ts
+apis/OrdersApi.ts
+apis/index.ts
+index.ts
+models/CustomerRequest.ts
+models/Expenses.ts
+models/OrderRequest.ts
+models/Positions.ts
+models/Problem.ts
+models/index.ts
+runtime.ts

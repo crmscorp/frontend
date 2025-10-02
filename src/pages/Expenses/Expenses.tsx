@@ -3,7 +3,7 @@ import React from 'react'
 import {columns} from './columns'
 import {customers} from '../../assets/dummy'
 import PageWrapper from '../PageWrapper'
-import { DataTable } from '../Customers/data-table'
+import { DataTable } from '../../components/ui/data-table'
 const Expenses = () => {
   return (
     <PageWrapper title='Expenses' categorie='Pages'>

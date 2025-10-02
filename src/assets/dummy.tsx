@@ -51,6 +51,74 @@ export interface ICustomers {
   status: "Aktuell" | "Umbekannt" | "Veraltet";
 }
 
+export type IOrders = {
+  orderId: string,
+  customerId: string,
+  title: string,
+  startDate: Date,
+  endDate: Date,
+  status: string,
+  descriptions: string
+}
+
+export const orders: IOrders[] = [
+  {
+    orderId: "ORD-1001",
+    customerId: "CUST-001",
+    title: "Website Redesign",
+    startDate: new Date("2025-08-01"),
+    endDate: new Date("2025-08-15"),
+    status: "In Progress",
+    descriptions: "Redesign of the corporate website including mobile optimization."
+  },
+  {
+    orderId: "ORD-1002",
+    customerId: "CUST-002",
+    title: "Marketing Campaign",
+    startDate: new Date("2025-07-15"),
+    endDate: new Date("2025-08-30"),
+    status: "Completed",
+    descriptions: "Summer marketing campaign across social media channels."
+  },
+  {
+    orderId: "ORD-1003",
+    customerId: "CUST-003",
+    title: "App Development",
+    startDate: new Date("2025-09-01"),
+    endDate: new Date("2025-12-31"),
+    status: "Pending",
+    descriptions: "Development of a cross-platform mobile application."
+  },
+  {
+    orderId: "ORD-1004",
+    customerId: "CUST-004",
+    title: "SEO Optimization",
+    startDate: new Date("2025-09-10"),
+    endDate: new Date("2025-10-10"),
+    status: "In Progress",
+    descriptions: "Improving organic search visibility and keyword ranking."
+  },
+  {
+    orderId: "ORD-1005",
+    customerId: "CUST-005",
+    title: "E-commerce Setup",
+    startDate: new Date("2025-06-01"),
+    endDate: new Date("2025-09-01"),
+    status: "Completed",
+    descriptions: "Setup of an online shop with payment and shipping integration."
+  },
+  {
+    orderId: "ORD-1006",
+    customerId: "CUST-006",
+    title: "Cloud Migration",
+    startDate: new Date("2025-10-01"),
+    endDate: new Date("2026-01-15"),
+    status: "Pending",
+    descriptions: "Migrating on-premise infrastructure to the cloud."
+  }
+];
+
+
 export const customers: ICustomers[] = [
   {
     id: "1",

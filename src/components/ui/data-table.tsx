@@ -28,11 +28,13 @@ import TablePagination from "@/components/TablePagination/TablePagination";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  filterParameter: string;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  filterParameter,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -56,10 +58,10 @@ console.log(table.getPageCount(), table.getState().pagination.pageIndex, table.g
     <div className="rounded-md border-0  dark:bg-main-dark-bg dark:text-white">
       <div className="flex items-center py-4 ml-2">
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder={`Filter ${filterParameter}...`}
+          value={(table.getColumn(filterParameter)?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn(filterParameter)?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />

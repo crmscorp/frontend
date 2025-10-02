@@ -14,19 +14,20 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
 import { OpenSheetButtom } from "../../components/Buttons/OpenSheetButtom";
+import { useNavigate } from "react-router-dom";
+import { CustomerRequest } from "src-gen/openapi/app";
 
 export const sheetInputs = [{value: "name", type:"string"}]
-
-export const columns: ColumnDef<ICustomers>[] = [
+export const columns: ColumnDef<CustomerRequest>[] = [
   {
-    accessorKey: "id",
+    accessorKey: "customerId",
     header: "ID",
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
+    cell: ({ row }) => <div className="w-[80px]">{row.getValue("customerId")}</div>,
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: "name",
+    accessorKey: "companyName",
     header: ({ column }) => {
         return (
           <Button
@@ -34,7 +35,7 @@ export const columns: ColumnDef<ICustomers>[] = [
             className="pl-0"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Name
+            Company Name
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         )
@@ -58,31 +59,18 @@ export const columns: ColumnDef<ICustomers>[] = [
       },
   },
   {
-    accessorKey: "status",
-    header: ({ column }) => {
-        return (
-          <Button
-            variant="ghost"
-            className="pl-0"
-            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          >
-            Status
-            <ArrowUpDown className="ml-2 h-4 w-4" />
-          </Button>
-        )
-      },
-  },
-  {
     id: "actions",
     header: ({ column }) => {
+      const navigate = useNavigate();
         return (
             <div className="flex justify-end w-auto" >
-                <OpenSheetButtom sheetTitle="Kunde Hinzufügen" underSheetText="Hier haben Sie die Möglichkeit, einen neuen Kunden hinzuzufügen"  buttonTitle="Kunde Hinzufügen" variant="outline"/>
+                <Button onClick={() => navigate(`/customers/create`)} variant="outline">Kunde Hinzufügen</Button>
           </div>
         )
       },
     cell: ({ row }) => {
-      const payment = row.original
+      const data = row.original
+      const navigate = useNavigate();
       return (
         <div style={{width: '100%'}} className="w-full flex justify-end">
         <DropdownMenu>
@@ -92,7 +80,7 @@ export const columns: ColumnDef<ICustomers>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>Mehr Anzeigen</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => navigate(`/customers/${data.customerId}`)}>Mehr Anzeigen</DropdownMenuItem>
               <div>
             <OpenSheetButtom className=" pl-2 py-1.5 " variant="ghost" buttonTitle="Bearbeiten" sheetTitle="Kunde Bearbeiten" underSheetText="Hier haben Sie die Möglichkeit, den Kunden zu bearbeiten."/>
             </div>

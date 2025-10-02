@@ -10,7 +10,7 @@ const PageWrapper: ({children, title, categorie}: IPageWrapper) => JSX.Element =
 
   return (
     <div className="m-2 dark:bg-main-dark-bg p-4 bg-white  max-h-909  overflow-scroll">
-    <Header category={categorie} title={title} />
+          <Header category={categorie} title={title} />
     {children}
     </div>
   )
